@@ -6,6 +6,12 @@ const HeaderNav = ({ expand }) => {
   return (
     <>
       <Nav expand={expand}>
+        <NavImg
+          src="/img/uwulogo.png"
+          alt="logo drawer UwuNotes"
+          width="80"
+          height="80"
+        />
         <NavList>
           <NavItem>
             <StyledLink to="/">Notes</StyledLink>
@@ -68,6 +74,14 @@ const StyledLink = styled(NavLink)`
 
   &:hover {
     color: #fff;
+  }
+`;
+
+const NavImg = styled.img`
+  display: none;
+  @media (max-width: 749px) {
+    display: block;
+    margin: 10% auto;
   }
 `;
 
