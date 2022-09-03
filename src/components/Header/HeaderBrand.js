@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import styled from "styled-components";
 
 const HeaderBrand = () => {
@@ -37,4 +37,4 @@ const BrandImg = styled.img`
   left: 7px;
 `;
 
-export default HeaderBrand;
+export default memo(HeaderBrand);

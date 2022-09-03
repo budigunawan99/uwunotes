@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import NoteContext from "../../context/NoteContext";
 
 const HeaderNav = ({ expand }) => {
+  const { totalMainNotes, totalArchivedNotes } = useContext(NoteContext);
   return (
     <>
       <Nav expand={expand}>
@@ -14,10 +16,14 @@ const HeaderNav = ({ expand }) => {
         />
         <NavList>
           <NavItem>
-            <StyledLink to="/">Notes</StyledLink>
+            <StyledLink to="/">
+              Notes <Counter>{totalMainNotes}</Counter>
+            </StyledLink>
           </NavItem>
           <NavItem>
-            <StyledLink to="/archives">Archives</StyledLink>
+            <StyledLink to="/archives">
+              Archives <Counter>{totalArchivedNotes}</Counter>
+            </StyledLink>
           </NavItem>
         </NavList>
       </Nav>
@@ -56,7 +62,6 @@ const NavItem = styled.li`
   display: inline-block;
   line-height: 24px;
   text-transform: uppercase;
-  width: 18%;
   @media (max-width: 749px) {
     display: list-item;
     width: 100%;
@@ -83,6 +88,14 @@ const NavImg = styled.img`
     display: block;
     margin: 10% auto;
   }
+`;
+
+const Counter = styled.span`
+  background-color: #180e12;
+  color: #fff;
+  border-radius: 30%;
+  padding: 0 3px;
+  display: inline-block;
 `;
 
 export default HeaderNav;

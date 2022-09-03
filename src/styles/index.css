@@ -11,16 +11,29 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-color: #FEF4F7;
+  background-color: #fef4f7;
 }
 
 #root {
   height: 100%;
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  min-width: 44px;
+  min-height: 44px;
+  transition: opacity 0.25s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.65;
+}
+
 @font-face {
   font-family: "poppins";
-  src: url("/public/font/Poppins-Regular.ttf");
+  src: url("../../public/font/Poppins-Regular.ttf");
   font-display: swap;
 }
 
@@ -30,5 +43,30 @@ body {
   font-weight: 400;
   font-display: swap;
   src: local("Material Icons"), local("MaterialIcons-Regular"),
-    url("/public/font/MaterialIcons-Regular.woff2") format("woff2");
+    url("../../public/font/MaterialIcons-Regular.woff2") format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
 }
