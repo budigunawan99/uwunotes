@@ -42,6 +42,7 @@ const ArticleContentTitle = styled.h3`
 const ArticleContentText = styled.p`
   text-align: left;
   font-size: 1rem;
+  word-wrap: anywhere;
 `;
 
 const ArticleContentDate = styled.p`

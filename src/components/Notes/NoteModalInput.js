@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+const ALLOWED_CHAR_LENGTH = 50;
+
 const NoteModalInput = ({ titleModal, action, closeModal }) => {
+  const initialValue = {
+    title: "",
+    content: "",
+  };
+
+  const [inputs, setInputs] = useState(initialValue);
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((previousInputs) => ({
+      ...previousInputs,
+      [name]: name === "title" ? value.slice(0, ALLOWED_CHAR_LENGTH) : value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    action({
+      title: inputs.title,
+      body: inputs.content,
+    });
+    setInputs(initialValue);
+    closeModal();
+  };
+
   return (
     <>
       <Container>
@@ -10,16 +38,21 @@ const NoteModalInput = ({ titleModal, action, closeModal }) => {
             <Title>{titleModal}</Title>
           </Header>
           <Line />
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label>
-                Title <span>50/50</span>
+                Title{" "}
+                <span>
+                  {ALLOWED_CHAR_LENGTH - inputs.title.length} char left
+                </span>
               </Label>
               <Input
                 type="text"
                 id="title"
                 name="title"
                 placeholder="Type note title"
+                value={inputs.title || ""}
+                onChange={handleChange}
                 required
               />
             </FormGroup>
@@ -29,15 +62,16 @@ const NoteModalInput = ({ titleModal, action, closeModal }) => {
                 id="content"
                 name="content"
                 placeholder="Type note content"
+                value={inputs.content || ""}
+                onChange={handleChange}
                 required
               />
             </FormGroup>
+            <MenuGroup>
+              <ButtonClose onClick={closeModal}>Close</ButtonClose>
+              <ButtonSave type="submit">Save</ButtonSave>
+            </MenuGroup>
           </Form>
-          <Line />
-          <MenuGroup>
-            <ButtonClose onClick={closeModal}>Close</ButtonClose>
-            <ButtonSave>Save</ButtonSave>
-          </MenuGroup>
         </Modal>
       </Container>
     </>
