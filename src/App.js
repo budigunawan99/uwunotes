@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={<Notes />} />
             <Route exact path="/notes" element={<Notes />} />
             <Route exact path="/archives" element={<Archives />} />
-            <Route path="*" element={<Fallback />} />
+            <Route path="*" element={<Fallback message="No Pages Found" />} />
           </Routes>
         </Wrapper>
         <Footer />

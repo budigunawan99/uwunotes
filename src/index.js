@@ -5,6 +5,7 @@ import App from "./App";
 import NoteState from "./context/NoteState";
 import DialogState from "./context/DialogState";
 import ModalState from "./context/ModalState";
+import swRegister from "./utils/swRegister";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,3 +19,7 @@ root.render(
     </DialogState>
   </React.StrictMode>
 );
+
+window.addEventListener("load", () => {
+  swRegister();
+});

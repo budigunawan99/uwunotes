@@ -11,13 +11,16 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "workbox-window": "^6.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "http-server build",
+    "build-serve": "npm run build && npm run serve"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "workbox-precaching": "^6.5.4"
   }
 }

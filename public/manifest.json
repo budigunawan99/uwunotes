@@ -1,0 +1,28 @@
+{
+  "name": "Simple Pink Notes",
+  "short_name": "UwuNotes",
+  "description": "The cutest notes app ever",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f48fb1",
+  "theme_color": "#fcdde8",
+  "icons": [
+    {
+      "src": "uwulogo.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
