@@ -5,7 +5,13 @@ import CONFIG from "./globals/config";
 
 const assets = self.__WB_MANIFEST;
 
-const additionalAssets = [{ url: "./" }, { url: "./img/nodata.png" }];
+const additionalAssets = [
+  { url: "./" },
+  { url: "./uwulogo.ico" },
+  { url: "./manifest.json" },
+  { url: "./img/nodata.png" },
+  { url: "./img/uwulogo.png" },
+];
 
 const mergedAssets = [...assets, ...additionalAssets].map((asset) => ({
   revision: CONFIG.VERSION,
